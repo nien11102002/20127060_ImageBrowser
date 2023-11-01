@@ -14,7 +14,7 @@ function App() {
   var URL=`https://api.unsplash.com/search/photos?page=${pageNumber}&query=${searchText}&client_id=${ACCESS_KEY}`
   useEffect(() => {
     loadImages();
-  }, [searchText,pageNumber]);
+  }, [finalSearch,pageNumber]);
 
   async function loadImages() {
     console.log()
@@ -50,6 +50,8 @@ function App() {
     setImageUrls([])
     console.log(finalSearch)
     console.log(URL)
+
+    loadImages();
   }
 
   const debounce = (func, delay) => {
